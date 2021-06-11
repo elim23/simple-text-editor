@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Hello World!</title>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+<body style="background: white;">
+    
+    <div class="editorBar">
+        <div style="float: left;">
+            <button><i class="fa fa-save" style="font-size: 18px;"></i></button>
+        </div>
+
+        <div style="position: fixed; left: 15%;">
+            <button><i class="fa fa-bold" style="font-size: 18px;"></i></button>
+            <button><i class="fa fa-underline" style="font-size:18px;"></i></button>    
+        </div>
+        
+        <div style="float: right; width: 210px;">
+            <input type="text" placeholder="Search" id="searchWord">
+            <button id = 'searchIcon' onclick= showSearchBox() ><i class="fa fa-search" style="font-size:18px;"></i></button>    
+        </div>
+        
+        
+    </div>
+
+    <div class= "paper" id= "textContainer" contenteditable="true">
+        <div  id = "textContent" >
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+<html>
