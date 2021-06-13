@@ -17,22 +17,46 @@
 
         <div style="position: fixed; left: 15%;">
             <button><i class="fa fa-bold" style="font-size: 18px;"></i></button>
-            <button><i class="fa fa-underline" style="font-size:18px;"></i></button>    
+            <button><i class="fa fa-underline" style="font-size:18px;" onclick="selectedText()"></i></button>    
         </div>
         
         <div style="float: right; width: 210px;">
             <input type="text" placeholder="Search" id="searchWord">
-            <button id = 'searchIcon' onclick= showSearchBox() ><i class="fa fa-search" style="font-size:18px;"></i></button>    
+            <button id = 'searchIcon' onclick= search()  ><i class="fa fa-search" style="font-size:18px;"></i></button>    
         </div>
         
         
     </div>
 
-    <div class= "paper" id= "textContainer" contenteditable="true">
-        <div  id = "textContent" >
-        </div>
+    <div id= "textContainer" contenteditable="true"></div>
+
+    <div id= "footer">
+        <div id= "matchNotif"></div>
     </div>
 
-    <script src="app.js"></script>
+    <script src="kmpSearch.js"></script>
+    <script>
+        function search(){
+            text = document.getElementById('textContainer').innerHTML;
+            pattern = document.getElementById('searchWord').value;
+
+
+            highlightSearched();
+            matchNotif()
+
+        }
+
+        function selectedText(){
+            if (document.getSelection){
+                text = document.getSelection().toString();
+                alert(text)
+            }
+        }
+
+        function matchNotif(){
+            document.getElementById("matchNotif").innerHTML = matchCount();
+        }
+
+    </script>
 </body>
 <html>
