@@ -16,21 +16,35 @@
         </div>
 
         <div style="position: fixed; left: 15%;">
-            <button><i class="fa fa-bold" style="font-size: 18px;"></i></button>
-            <button><i class="fa fa-underline" style="font-size:18px;" onclick="selectedText()"></i></button>    
+            <button data-command="bold" id="boldBtn">
+                <i class="fa fa-bold" style="font-size: 18px;"></i>
+            </button>
+
+            <button data-command="italic">
+                <i class="fa fa-italic" style="font-size: 18px;"></i>
+            </button>
+
+            <button data-command="underline">
+                <i class="fa fa-underline" style="font-size:18px;" onclick="selectedText()"></i>
+            </button>    
         </div>
         
         <div style="float: right; width: 210px;">
             <input type="text" placeholder="Search" id="searchWord">
-            <button id = 'searchIcon' onclick= search()  ><i class="fa fa-search" style="font-size:18px;"></i></button>    
+            <button id = 'searchIcon' onclick= search()  ><i class="fa fa-search" style="font-size:18px;"></i></button>  
+            
         </div>
         
-        
+       
     </div>
 
     <div id= "textContainer" contenteditable="true"></div>
 
     <div id= "footer">
+        <div style="position: fixed; left: 45%;">
+            <input type="text" placeholder="Replace" id="replaceWord">
+            <button id = 'replaceIcon' onclick= replace()  ><i class="fa fa-retweet" style="font-size:18px;"></i></button>  
+        </div >
         <div id= "matchNotif"></div>
     </div>
 
@@ -40,17 +54,16 @@
             text = document.getElementById('textContainer').innerHTML;
             pattern = document.getElementById('searchWord').value;
 
-
             highlightSearched();
             matchNotif()
-
         }
 
-        function selectedText(){
-            if (document.getSelection){
-                text = document.getSelection().toString();
-                alert(text)
-            }
+        function replace(){
+            text = document.getElementById('textContainer').innerHTML;
+            pattern = document.getElementById('searchWord').value;
+            replaceWord = document.getElementById('replaceWord').value;
+
+            replaceWords()
         }
 
         function matchNotif(){
